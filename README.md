@@ -1,54 +1,88 @@
 # Devfy
 
-Devfy é um projeto de exemplo que utiliza React para criar uma aplicação web. Este projeto foi configurado para usar `react-scripts` e inclui várias dependências úteis para desenvolvimento e construção.
+Devfy é um projeto desenvolvido durante a Imersão Front-End da Alura. O objetivo inicial era criar um site em HTML inspirado no Spotify. No entanto, com a empolgação, decidi expandi-lo para incluir funcionalidades adicionais, como a integração com a API do YouTube, permitindo a criação e o gerenciamento de playlists de músicas
 
-## Instalação
+## Funcionalidades
 
-Para instalar as dependências do projeto, execute:
+- Busca de músicas utilizando a API do YouTube.
+- Criação e gerenciamento de playlists.
+- Reprodução de áudio do YouTube diretamente no aplicativo.
+- Controle de volume e reprodução (play, pause, próximo, anterior).
+- Suporte a emojis nos nomes das playlists.
+- Interface responsiva para dispositivos móveis.
+
+## Tecnologias Utilizadas
+
+- React
+- Bootstrap
+- YouTube Data API v3
+- Emoji Picker
+- ChatGPT, DeepSeek e Copilot IA para auxílio no desenvolvimento
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+
+- Node.js (versão 16.x ou superior)
+- npm (gerenciador de pacotes do Node.js)
+
+### Passos para Executar
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/Gabriel-SantosXD/devfy.git
+   cd devfy
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Crie um arquivo `api-key.js` na pasta `src` com a sua chave de API do YouTube:
+
+   ```javascript
+   // filepath: /src/api-key.js
+   export const API_KEY = "Sua chave de API";
+   // vá no google cloud console e crie uma chave de API para o youtube data api v3
+   ```
+
+4. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm start
+   ```
+
+5. Abra o navegador e acesse `http://localhost:3000`.
+
+### Build para Produção
+
+Para criar uma versão otimizada, execute:
 
 ```bash
-npm install
+npm run build
 ```
 
-## Scripts Disponíveis
-
-No diretório do projeto, você pode executar:
-
-### `npm start`
-
-Inicia o aplicativo no modo de desenvolvimento.\
-Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo no navegador.
-
-### `npm run build`
-
-Cria a aplicação para produção na pasta `build`.\
-Ele agrupa corretamente o React no modo de produção e otimiza a construção para o melhor desempenho.
-
-### `npm test`
-
-Inicia o executor de testes no modo de observação interativo.\
-Veja a seção sobre [testes](https://facebook.github.io/create-react-app/docs/running-tests) para mais informações.
-
-### `npm run eject`
-
-**Nota: esta é uma operação unilateral. Uma vez que você `eject`, você não pode voltar!**
-
-Se você não estiver satisfeito com a ferramenta de construção e as escolhas de configuração, você pode `eject` a qualquer momento. Este comando removerá a dependência de construção única do seu projeto.
-
-## Configuração da API
-
-Para configurar a chave da API do YouTube Data API v3, edite o arquivo `src/api-key.js` e substitua `"Sua chave de API"` pela sua chave de API.
+Os arquivos de build serão gerados na pasta `build`.
 
 ## Estrutura do Projeto
 
-- `src/`: Contém o código-fonte do projeto.
-- `public/`: Contém os arquivos públicos que não são processados pelo Webpack.
-- `node_modules/`: Contém as dependências do projeto.
+- `src/Home.js`: Componente principal que contém a lógica de busca, reprodução e gerenciamento de playlists.
+- `src/api-key.js`: Arquivo para armazenar a chave de API do YouTube.
+- `src/serviceWorkerRegistration.js`: Arquivo para registrar o service worker.
+- `public/manifest.json`: Arquivo de configuração do PWA.
+- `public/index.html`: Arquivo HTML principal.
 
 ## Contribuição
 
-Sinta-se à vontade para abrir issues e pull requests para melhorias e correções.
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT.
+Este projeto está licenciado sob a licença CC BY-NC 4.0 license. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Contato
+
+- GitHub: [Gabriel-SantosXD](https://github.com/Gabriel-SantosXD)
