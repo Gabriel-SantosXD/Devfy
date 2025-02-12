@@ -1,0 +1,35 @@
+@media (max-width: 768px) {
+  .Preview,
+  .sidebar,
+  .Github-hidden {
+    display: none;
+  }
+  .content-result {
+    width: 100%;
+  }
+  .input-search {
+    width: 70%;
+  }
+  .main {
+    margin-top: 60px;
+  }
+  .current-video-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+ 
+}
+
+@media (min-width: 769px) {
+  .drop-mb {
+    display: none;
+  }
+  .content-preview {
+    display: none;
+  }
+  .drop-list-mb {
+    display: none !important;
+  }
+}

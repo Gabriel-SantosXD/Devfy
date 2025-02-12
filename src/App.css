@@ -1,0 +1,687 @@
+@import "./font.css";
+
+:root {
+  --border10px: 10px;
+  --text-secundario: #b3b3b3;
+  --font-principal: "DM Sans", sans-serif;
+  --background-color: #2b3035;
+  --border-radius: 8px;
+  --padding: 10px;
+  --margin: 10px;
+  --font-size: 16px;
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-light: 300;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #888;
+  --color-dark-gray: #555;
+  --color-light-gray: #ddd;
+  --color-green: rgb(59, 241, 59);
+}
+body {
+  display: flex;
+  height: 100vh; /* Garante que a altura seja 100% da tela */
+  margin: 0;
+  flex-direction: column;
+  overflow: hidden; /* Impede rolagem desnecessária */
+}
+
+.Menu {
+  width: 100%;
+  display: flex;
+  height: 65px;
+}
+.containers {
+  display: flex;
+  flex: 1;
+  margin-top: 15px;
+  margin-left: 8px;
+  margin-right: 8px;
+  height: calc(100vh - 230px);
+}
+.tile-biblioteca {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Impede que a altura seja reduzida */
+}
+.sidebar {
+  border-radius: var(--border10px);
+  margin-bottom: 15px;
+  width: 270px;
+  height: calc(100vh - 230px);
+  color: white;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column; /* Garante que os itens fiquem em coluna */
+  justify-content: flex-start; /* Alinha os itens ao topo */
+}
+
+.playlists {
+  overflow-y: auto; /* Adiciona rolagem vertical */
+  flex-grow: 1; /* Permite que a lista de playlists cresça */
+}
+
+.Menu ul {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between; /* Distribui os itens */
+  padding: 0 20px;
+}
+.soundwave {
+  font-size: 60px;
+}
+.Logo {
+  align-items: center;
+  display: flex;
+  font-family: "GothamBold", sans-serif;
+  font-size: 32px;
+  color: #fff;
+}
+
+.input-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; /* Centraliza o input */
+}
+
+.input-search {
+  background-color: var(--background-color);
+  width: 410px;
+  border-radius: 50px;
+  border: none;
+  color: var(--color-white);
+  padding: 8px;
+}
+.sugestions-search {
+  display: none; /* Oculta as sugestões por padrão */
+  top: 0;
+  color: #fff;
+  margin-top: 58px;
+  position: absolute;
+  border: 1px solid #dddddd8c;
+  border-radius: 5px;
+  background: var(--background-color);
+  max-width: 400px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.input-search:focus {
+  outline: none; /* Remove o outline padrão */
+  border: 2px solid #dddddd8c; /* Adiciona a borda azul */
+}
+
+.input-search:focus + .sugestions-search {
+  display: flex; /* Exibe as sugestões quando o campo de entrada está em foco */
+}
+
+.Github {
+  font-size: 20px;
+  color: #fff;
+  gap: 5px;
+  margin-left: auto; /* Joga para a direita */
+  display: flex;
+  align-items: center;
+}
+.github-drop{
+
+  width: 100%;
+}
+.main {
+  flex-grow: 1; /* Ocupa o espaço restante */
+  border-radius: var(--border10px);
+  padding: 20px;
+  margin-left: 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  flex-grow: 1; /* Ocupa o espaço restante */
+  padding: 20px;
+  color: white;
+  display: flex;
+}
+
+.content-result {
+  display: flex;
+  flex-wrap: wrap; /* Permite múltiplas linhas */
+  justify-content: flex-start; /* Inicia da esquerda */
+  align-content: flex-start; /* Inicia do topo */
+  height: 100%;
+  width: 60%;
+  gap: 10px;
+  overflow-y: auto; /* Rolagem vertical */
+}
+.Preview {
+  border-left: 2px solid #8b8b8b1f;
+  padding-left: 15px;
+  width: 40%;
+  height: 100%;
+}
+.content-box {
+  background-color: rgba(134, 134, 134, 0.048);
+  border-radius: 10px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  width: 140px; /* Tamanho fixo de 150px */
+  height: 200px; /* Tamanho fixo de 150px */
+  position: relative; /* Adicionado para posicionamento absoluto do Ttrash */
+  display: flex; /* Adicionado para usar flexbox */
+  flex-direction: column; /* Alinha os itens em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+}
+
+.content-box.playing {
+  border: 2px solid #4caf50; /* Exemplo de destaque com borda verde */
+  background-color: #3a3838; /* Exemplo de fundo diferente */
+}
+
+.drop-mb {
+  font-size: 40px;
+}
+.section-pc {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: var(--margin) 0px;
+  padding: 20px 20px;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-semi-bold);
+  align-items: flex-start;
+  border-radius: 5px;
+}
+
+.section-playlist_content-modal {
+  background-color: #3a3838;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  height: 150px;
+  position: fixed;
+  top: 20%; /* Ajuste para subir um pouco mais */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.button-next-modal {
+  color: #858585;
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  font-family: "GothamBook", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.button-next-modal:hover {
+  color: #fff; /* Altera a cor ao passar o mouse */
+}
+.emoji-create-list {
+  color: #858585;
+  display: flex;
+  position: absolute; /* Adicionado para posicionamento absoluto */
+  top: 30px;
+  margin-left: 5px;
+  font-size: 20px;
+}
+.emoji-create-list:hover {
+  color: #fff; /* Altera a cor ao passar o mouse */
+}
+.modal-emoji {
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.input-create-list {
+  top: 0;
+  margin-top: 10px;
+  background-color: var(--background-color);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50px;
+  padding: 8px;
+  padding-left: 30px;
+  display: flex;
+  width: 100%;
+  height: 30px;
+}
+.input-create-list:focus {
+  outline: none; /* Remove o outline padrão */
+  border: 2px solid #dddddd8c; /* Adiciona a borda azul */
+}
+
+.close-modal {
+  display: flex;
+  position: absolute; /* Adicionado para posicionamento absoluto */
+  top: 5px;
+  right: 10px;
+  color: #858585;
+  font-weight: 700;
+  font-size: 20px;
+}
+.close-modal:hover {
+  color: #fff; /* Altera a cor ao passar o mouse */
+}
+.section-playlist .section-playlist_content {
+  display: flex;
+  flex-direction: column;
+}
+.section-playlist_content .text {
+  color: var(--color-white);
+}
+.section-playlist_content .title {
+  font-weight: var(--font-weight-bold);
+  padding-bottom: 5px;
+}
+.section-playlist_content .subtitle {
+  padding-bottom: 16px;
+  font-weight: var(--font-weight-medium);
+  font-size: 14px;
+}
+.section-playlist_content .section-playlist_button {
+  background-color: var(--color-white);
+  border: none;
+  color: var(--color-black);
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  padding: var(--padding);
+  width: 130px;
+}
+.languages .languages_button {
+  display: flex;
+  bottom: 0;
+  background-color: transparent;
+  border: 1px solid #878787;
+  color: var(--text-secundario);
+  cursor: pointer;
+  font-weight: bold;
+  width: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 20px;
+}
+.languages {
+  margin-top: auto; /* Empurra a div para o fundo */
+}
+
+.suggestion-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.suggestion-thumbnail {
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+  flex-shrink: 0; /* Impede que a imagem encolha */
+  object-fit: cover; /* Garante que a imagem mantenha a proporção */
+  align-self: flex-start; /* Alinha a imagem ao topo do item */
+}
+
+.suggestion-title {
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+}
+.video-iframe {
+  width: 100%;
+  height: 230px;
+  border-radius: 8px;
+  display: none;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-dark-gray);
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-bar div {
+  height: 100%;
+  background-color: rgb(59, 241, 59); /* Cor verde dinâmica */
+  width: 0;
+  transition: width 0.1s;
+  position: relative; /* Adicionado para posicionamento do círculo */
+}
+
+.progress-bar div::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: rgb(59, 241, 59);
+  border-radius: 50%;
+  display: none; /* Oculto por padrão */
+}
+
+.progress-bar:hover div::after {
+  display: block; /* Exibe o círculo ao passar o mouse */
+  transform: translate(50%, -150%); /* Ajusta a posição para saltar para fora */
+}
+
+.progress-circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: rgb(59, 241, 59);
+  border-radius: 50%;
+  pointer-events: none; /* Impede que o círculo interfira nos cliques */
+  z-index: 1; /* Garante que o círculo fique acima do progress bar */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Adiciona sombra para destacar */
+}
+
+.song-thumbmail {
+  border-radius: 6px 6px 0 0;
+  max-width: 120px;
+  height: 90px;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  cursor: pointer;
+}
+
+.song-title {
+  cursor: pointer;
+  text-align: center; /* Centraliza o texto */
+  white-space: normal; /* Permite quebra de linha */
+  overflow: hidden; /* Oculta o texto que ultrapassa o limite */
+  text-overflow: ellipsis; /* Adiciona "..." ao final do texto */
+  width: 100%; /* Garante que o texto ocupe toda a largura disponível */
+  word-wrap: break-word; /* Quebra a palavra se necessário */
+}
+
+.Ttrash {
+  position: absolute;
+  top: 12px;
+  right: 19px;
+  z-index: 1; /* Ajuste o z-index para garantir que fique abaixo da playlist-options */
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(49, 49, 49);
+  color: white; /* Ajuste a cor conforme necessário */
+  cursor: pointer;
+  border-radius: 50%; /* Torna o elemento circular */
+}
+.Plus-button {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  margin-left: 10px;
+  display: flex;
+}
+.Plus-button:hover {
+  color: rgb(59, 241, 59);
+}
+.current-video-thumbnail {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.title-preview {
+  display: flex;
+  flex-direction: column; /* Alinha os itens em coluna */
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+  align-items: flex-start; /* Alinha os itens ao topo */
+  justify-content: space-between; /* Adicionado para distribuir o conteúdo */
+  position: relative; /* Necessário para posicionar o ícone de coração */
+}
+
+.title-preview span {
+  white-space: nowrap; /* Impede quebra de linha */
+  overflow: hidden; /* Oculta o texto que ultrapassa o limite */
+  text-overflow: ellipsis; /* Adiciona "..." ao final do texto */
+  max-width: calc(100% - 40px); /* Ajusta o tamanho máximo para evitar sobreposição */
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 5px; /* Adiciona espaço abaixo do título */
+}
+
+.heart-button-preview {
+  cursor: pointer;
+  display: flex;
+  /* margin-left: 8px; Adicionado para empurrar o botão para a direita */
+  position: absolute; /* Posiciona o ícone de coração */
+  right: 10px; /* Alinha o ícone de coração à direita */
+  top: 50%; /* Centraliza o ícone de coração verticalmente */
+  transform: translateY(-50%); /* Ajusta a posição para centralizar */
+}
+
+.playlist-options {
+  position: absolute;
+  top: 40px; /* Ajuste conforme necessário */
+  right: 0;
+  background-color: var(--background-color);
+  border: 1px solid #dddddd8c;
+  border-radius: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 200px; /* Ajuste conforme necessário */
+  display: none; /* Oculto por padrão */
+  z-index: 10; /* Ajuste o z-index para garantir que fique acima do ícone de lixo */
+}
+
+.playlist-options.show {
+  display: block; /* Exibe o dropdown quando a classe 'show' é adicionada */
+}
+
+.playlist-options li {
+  padding: 10px;
+  cursor: pointer;
+  color: var(--color-white);
+  display: flex;
+  justify-content: space-between; /* Adicionado para alinhar o ícone de coração à direita */
+}
+
+.playlist-options li:hover {
+  background-color: #3a3838; /* Adiciona cor de fundo ao passar o mouse */
+}
+
+.playlist-options .bi-heart-fill {
+  color: rgb(59, 241, 59); /* Cor verde para o ícone de coração */
+}
+
+.playlist-item {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.playlist-item:hover,
+.playlist-item.active {
+  background-color: #3a3838; /* Adiciona cor de fundo ao passar o mouse e quando ativa */
+}
+
+.playlist-item:hover .playlist-buttons .bi-pencil,
+.playlist-item:hover .playlist-buttons .bi-trash {
+  color: #fff; /* Adiciona cor aos ícones ao passar o mouse */
+}
+
+.playlist-buttons {
+  margin-right: 10px;
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* Adicionado para mover para o lado direito */
+}
+.playlist-name {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.playlist-item:hover {
+  background-color: #3a3838; /* Adiciona cor de fundo ao passar o mouse */
+}
+
+.playlist-buttons .bi-pencil,
+.playlist-buttons .bi-trash {
+  color: transparent; /* Adicionado para mudar a cor dos ícones */
+}
+.playlist-buttons .bi-trash:hover,
+.playlist-buttons .bi-pencil:hover {
+  color: rgb(59, 241, 59) !important; /* Adiciona cor ao passar o mouse */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #3a3838;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--color-white);
+  width: 370px; /* Define a largura do modal */
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Distribui os botões nas extremidades */
+}
+
+.modal-content button:first-of-type {
+  width: 100px;
+  background-color: rgb(59, 241, 59);
+  color: var(--color-black);
+}
+
+.modal-content button:last-of-type {
+  width: 100px;
+  background-color: #ff4d4d;
+  color: var(--color-white);
+}
+.btn-cn {
+  color: #fff;
+}
+
+/* Estilo personalizado para o scroll vertical */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #636363;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #414040;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #acacac;
+}
+.content-preview {
+  display: flex;
+  position: absolute;
+  width: calc(100% - 30px); /* Ajusta a largura para considerar as margens */
+  margin-left: 15px;
+  margin-right: 8px;
+  height: 70px;
+  right: 0; /* Garante que a margem direita funcione */
+  align-items: center;
+  padding: 10px;
+  background-color: #2b3035;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 2; /* Garante que a content-preview fique acima de outros elementos */
+}
+
+.preview-content {
+  display: flex;
+  align-items: center;
+  position: relative; /* Necessário para posicionar as opções da playlist */
+  width: 100%;
+}
+
+.drop-list-mb {
+  position: absolute;
+  right: 15px; /* Alinha à direita com margem de 15px */
+  border: 1px solid #dddddd8c;
+  border-radius: 5px;
+  background: var(--background-color);
+  width: 300px;
+  height: auto;
+  padding: 10px;
+  z-index: 3;
+  flex-direction: column;
+  display: none;
+}
+.hr-drop {
+  margin-top: 10px;
+  border-top: 1px solid #ffffff4d;
+}
+
+.playlist-info {
+  margin-top: 5px;
+  font-size: 14px;
+  color: var(--color-gray);
+  width: 100%; /* Garante que a informação da playlist ocupe toda a largura disponível */
+}

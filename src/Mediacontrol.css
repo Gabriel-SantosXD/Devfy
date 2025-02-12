@@ -1,0 +1,120 @@
+.MediaControl {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column; /* Alinha os itens em coluna */
+  justify-content: center;
+  align-items: center;
+}
+.btn-media {
+  color: #fff;
+  margin: 10px;
+  font-size: 30px;
+}
+.btn-media:hover {
+  color: rgb(59, 241, 59) !important;
+}
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 10px;
+  margin-bottom: 20px;
+}
+.time {
+  font-size: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #fff;
+}
+.progress-bar {
+  flex-grow: 1;
+  height: 5px;
+  background: #555;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative; /* Adicionado para posicionamento do círculo */
+}
+.progress-bar div {
+  height: 100%;
+  background: rgb(59, 241, 59);
+  width: 0;
+  position: relative; /* Adicionado para posicionamento do círculo */
+}
+.progress-bar div::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: rgb(59, 241, 59);
+  border-radius: 50%;
+  display: none; /* Oculto por padrão */
+}
+.progress-bar:hover div::after {
+  display: block; /* Exibe o círculo ao passar o mouse */
+  transform: translate(50%, -150%); /* Ajusta a posição para saltar para fora */
+}
+.container-volume {
+  display: flex;
+  align-items: center;
+}
+.container-volume button {
+  background-color: transparent;
+  color: #fff;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+.container-volume button:hover {
+  background-color: transparent;
+  color: rgb(59, 241, 59);
+}
+.progress-volume {
+  background-color: #555;
+  width: 200px;
+  height: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative; /* Adicionado para posicionamento do círculo */
+}
+.progress-volume div {
+  height: 100%;
+  border-radius: 5px;
+  background: rgb(59, 241, 59);
+  width: 0;
+  cursor: pointer;
+  position: relative; /* Adicionado para posicionamento do círculo */
+}
+.progress-volume div::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: rgb(59, 241, 59);
+  border-radius: 50%;
+  display: none; /* Oculto por padrão */
+}
+.progress-volume:hover div::after {
+  display: block; /* Exibe o círculo ao passar o mouse */
+}
+.legends {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  height: 100%;
+  /* background-color: #0f0f0f; */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
